@@ -1,0 +1,42 @@
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-inline: 20px;
+}
+.btn {
+  border-radius: 50px;
+  border: none;
+  padding: 11px 24px;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+.btn-success {
+  background: $success;
+  color: $color-white;
+
+  &:hover {
+    background: #00d29f;
+  }
+}
+
+.btn-transparent {
+  border: 1px solid $success;
+  color: $success;
+  &:hover {
+    background: #0dbc91;
+    color: #fff;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    padding-inline: 17px;
+  }
+  .btn {
+    font-size: $fs-s;
+    font-weight: 400;
+    line-height: 21px;
+    padding: 10px 23px;
+  }
+}

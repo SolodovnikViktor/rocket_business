@@ -1,26 +1,43 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <BaseHeader @nav-state="openNav" />
+  <SectionMain :nav-state="navState" />
+  <SectionSlider />
+  <BaseFooter />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import BaseHeader from './components/BaseHeader.vue';
+import SectionMain from './components/SectionMain.vue';
+import SectionSlider from './components/SectionSlider.vue';
+import BaseFooter from './components/BaseFooter.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    BaseHeader,
+    SectionMain,
+    SectionSlider,
+    BaseFooter,
+  },
+  data() {
+    return {
+      navState: false,
+    };
+  },
+  methods: {
+    openNav(data) {
+      this.navState = data;
+      console.log(data);
+    },
   },
 };
 </script>
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-family: 'PT Sans Caption';
+  font-size: $fs-base;
+  letter-spacing: 0em;
+  text-align: left;
 }
 </style>
