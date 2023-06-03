@@ -170,7 +170,8 @@ export default {
         font-weight: $fw-7;
         line-height: 21px;
         transition: color 0.2s ease-in-out, background 0.2s ease-in-out;
-        &:hover {
+        &:hover,
+        :active {
           backdrop-filter: blur(2px);
           background: rgb(0, 151, 197);
           color: #fff;

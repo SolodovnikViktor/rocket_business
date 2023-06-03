@@ -15,20 +15,20 @@
   background: $success;
   color: $color-white;
 
-  &:hover {
+  &:hover,
+  :active {
     background: #00d29f;
   }
 }
-
 .btn-transparent {
   border: 1px solid $success;
   color: $success;
-  &:hover {
+  &:hover,
+  :active {
     background: #0dbc91;
     color: #fff;
   }
 }
-
 @media (max-width: 992px) {
   .container {
     padding-inline: 17px;

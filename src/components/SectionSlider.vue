@@ -206,7 +206,8 @@ export default {};
       & path {
         transition: 0.3s ease-in-out;
       }
-      &:hover {
+      &:hover,
+      :active {
         & path {
           fill: #0dbc91;
         }
