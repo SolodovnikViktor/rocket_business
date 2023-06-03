@@ -10,4 +10,5 @@ module.exports = defineConfig({
       },
     },
   },
+  publicPath: '/rocket_business_test/',
 });
