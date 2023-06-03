@@ -1,32 +1,32 @@
 <template>
-  <div class="main">
-    <nav class="main__burger-closed" :class="{ 'main__burger-open': navState }">
-      <ul class="main__burger--list">
-        <li class="main__burger--item"><a href="#" class="main__burger--link">О клинике</a></li>
-        <li class="main__burger--item"><a href="#" class="main__burger--link">Услуги</a></li>
-        <li class="main__burger--item"><a href="#" class="main__burger--link">Специалисты</a></li>
-        <li class="main__burger--item"><a href="#" class="main__burger--link">Цены</a></li>
-        <li class="main__burger--item"><a href="#" class="main__burger--link">Контакты</a></li>
+  <section class="head">
+    <nav class="head__burger-closed" :class="{ 'head__burger-open': navState }">
+      <ul class="head__burger--list">
+        <li class="head__burger--item"><a href="#" class="head__burger--link">О клинике</a></li>
+        <li class="head__burger--item"><a href="#" class="head__burger--link">Услуги</a></li>
+        <li class="head__burger--item"><a href="#" class="head__burger--link">Специалисты</a></li>
+        <li class="head__burger--item"><a href="#" class="head__burger--link">Цены</a></li>
+        <li class="head__burger--item"><a href="#" class="head__burger--link">Контакты</a></li>
       </ul>
-      <div class="main__burger--box">
-        <button class="main__burger--btn">Записаться на прием</button>
+      <div class="head__burger--box">
+        <button class="head__burger--btn">Записаться на прием</button>
       </div>
     </nav>
 
-    <div class="main__container">
-      <div class="main__img-mobile"><img src="@/assets/img/img-1-375.jpg" alt="" /></div>
+    <div class="head__container">
+      <div class="head__img-mobile"><img src="@/assets/img/img-1-375.jpg" alt="" /></div>
       <div class="container">
-        <div class="main__info">
-          <h1 class="main__title">Многопрофильная клиника для детей и&nbsp;взрослых</h1>
-          <p class="main__descry">
+        <div class="head__info">
+          <h1 class="head__title">Многопрофильная клиника для детей и&nbsp;взрослых</h1>
+          <p class="head__descry">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do&nbsp;eiusmod tempor
             incididunt ut&nbsp;labore et&nbsp;dolore magna aliqua
           </p>
         </div>
       </div>
-      <div class="main__img"></div>
+      <div class="head__img"></div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style lang="scss">
-.main {
+.head {
   background-color: #f8fbfa;
   margin-bottom: 100px;
 
@@ -84,7 +84,7 @@ export default {
   }
 }
 @media (max-width: 992px) {
-  .main {
+  .head {
     margin-bottom: 49px;
     &__container {
       max-width: 992px;

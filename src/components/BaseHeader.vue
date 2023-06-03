@@ -56,7 +56,7 @@
           <button class="header__contacts--btn btn btn-success">Записаться на прием</button>
         </div>
       </div>
-      <div class="header__info-mobile">
+      <div class="header__info--mobile">
         <div class="header__box">
           <button
             class="header__nav--closed"
@@ -64,7 +64,7 @@
             @click="btnNav()"
           >
             <span></span><span></span><span></span></button
-          ><a class="header__logo" href="#"><img alt="logo" src="../assets/logo-mobile.png" /></a>
+          ><a class="header__logo" href="#"><img alt="logo" src="../assets/logo--mobile.png" /></a>
         </div>
         <div class="header__contacts--box">
           <a class="header__contacts--tel" href="tel:+78630000000">+7(863) 000 00 00</a>
@@ -111,7 +111,7 @@ export default {
     display: flex;
     justify-content: space-between;
     padding-block: 12px;
-    &-mobile {
+    &--mobile {
       display: none;
     }
   }
@@ -193,7 +193,7 @@ export default {
     }
     &__info {
       display: none;
-      &-mobile {
+      &--mobile {
         display: flex;
         justify-content: space-between;
         padding-top: 15px;

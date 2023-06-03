@@ -1,13 +1,16 @@
 <template>
   <BaseHeader @nav-state="openNav" />
-  <SectionMain :nav-state="navState" />
-  <SectionSlider />
+  <main class="main">
+    <SectionMain :nav-state="navState" />
+    <SectionSlider />
+  </main>
+
   <BaseFooter />
 </template>
 
 <script>
 import BaseHeader from './components/BaseHeader.vue';
-import SectionMain from './components/SectionMain.vue';
+import SectionMain from './components/SectionHead.vue';
 import SectionSlider from './components/SectionSlider.vue';
 import BaseFooter from './components/BaseFooter.vue';
 
