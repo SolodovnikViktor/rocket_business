@@ -14,7 +14,7 @@
     </nav>
 
     <div class="head__container">
-      <div class="head__img-mobile"><img src="@/assets/img/img-1-375.jpg" alt="" /></div>
+      <div class="head__img--mobile"><img src="@/assets/img/img-1-375.jpg" alt="" /></div>
       <div class="container">
         <div class="head__info">
           <h1 class="head__title">Многопрофильная клиника для детей и&nbsp;взрослых</h1>
@@ -73,7 +73,7 @@ export default {
     background-image: url(@/assets/img/img-1-1920.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    &-mobile {
+    &--mobile {
       display: none;
     }
   }
@@ -95,7 +95,7 @@ export default {
     }
     &__img {
       display: none;
-      &-mobile {
+      &--mobile {
         display: flex;
         align-items: center;
         flex-direction: column;

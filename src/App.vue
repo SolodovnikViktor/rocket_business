@@ -30,7 +30,6 @@ export default {
   methods: {
     openNav(data) {
       this.navState = data;
-      console.log(data);
     },
   },
 };
