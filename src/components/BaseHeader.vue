@@ -1,6 +1,6 @@
 <!-- eslint-disable max-len -->
 <template>
-  <div class="header">
+  <header class="header">
     <div class="container">
       <div class="header__info">
         <div class="header__box">
@@ -83,7 +83,7 @@
         </ul>
       </div>
     </nav>
-  </div>
+  </header>
 </template>
 
 <!-- eslint-disable no-unused-expressions -->

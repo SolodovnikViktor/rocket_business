@@ -1,7 +1,7 @@
 <!-- eslint-disable max-len -->
 <!-- eslint-disable vuejs-accessibility/anchor-has-content -->
 <template>
-  <div class="footer">
+  <footer class="footer">
     <div class="footer__box container">
       <a class="footer__logo" href="#">
         <svg
@@ -47,7 +47,7 @@
         </a>
       </div>
     </div>
-  </div>
+  </footer>
 </template>
 <script>
 export default {};
