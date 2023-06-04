@@ -2,9 +2,21 @@
 <template>
   <header class="header">
     <div class="container">
-      <div class="header__info">
-        <div class="header__box">
-          <a class="header__logo" href="#"><img alt="logo" src="../assets/logo.png" /></a>
+      <div class="info info--mobile">
+        <div class="info__box">
+          <button class="btn__nav" :class="{ 'btn-open': openNav }" @click="btnNav()">
+            <span></span><span></span><span></span>
+          </button>
+          <a class="logo"><img alt="logo" src="../assets/logo-mobile.png" /> </a>
+        </div>
+        <div class="contacts">
+          <a class="contacts--tel" href="tel:+78630000000">+7(863) 000 00 00</a>
+          <span class="contacts--address">Ростов-на-Дону</span>
+        </div>
+      </div>
+      <div class="info info--desktop">
+        <div class="info__box">
+          <a class="logo"><img alt="logo" src="../assets/logo.png" /></a>
           <div class="header__address">
             <svg
               width="20"
@@ -22,8 +34,8 @@
             <span class="header__address--text">ул. Ленина, 2Б</span>
           </div>
         </div>
-        <div class="header__box">
-          <div class="header__contacts">
+        <div class="info__box">
+          <div class="contacts">
             <svg
               width="28"
               height="28"
@@ -51,35 +63,20 @@
                 </clipPath>
               </defs>
             </svg>
-            <a class="header__contacts--tel" href="tel:+78630000000">+7(863) 000 00 00</a>
+            <a class="contacts--tel" href="tel:+78630000000">+7(863) 000 00 00</a>
           </div>
-          <button class="header__contacts--btn btn btn-success">Записаться на прием</button>
-        </div>
-      </div>
-      <div class="header__info--mobile">
-        <div class="header__box">
-          <button
-            class="header__nav--closed"
-            :class="{ 'header__nav--open': openNav }"
-            @click="btnNav()"
-          >
-            <span></span><span></span><span></span></button
-          ><a class="header__logo" href="#"><img alt="logo" src="../assets/logo-mobile.png" /></a>
-        </div>
-        <div class="header__contacts--box">
-          <a class="header__contacts--tel" href="tel:+78630000000">+7(863) 000 00 00</a>
-          <span class="header__contacts--address">Ростов-на-Дону</span>
+          <button class="contacts--btn btn btn-success">Записаться на прием</button>
         </div>
       </div>
     </div>
-    <nav class="header__nav">
+    <nav class="header__nav nav">
       <div class="container">
-        <ul class="header__nav--list">
-          <li class="header__nav--item"><a href="#" class="header__nav--link">О клинике</a></li>
-          <li class="header__nav--item"><a href="#" class="header__nav--link">Услуги</a></li>
-          <li class="header__nav--item"><a href="#" class="header__nav--link">Специалисты</a></li>
-          <li class="header__nav--item"><a href="#" class="header__nav--link">Цены</a></li>
-          <li class="header__nav--item"><a href="#" class="header__nav--link">Контакты</a></li>
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#" class="nav__link">О клинике</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">Услуги</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">Специалисты</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">Цены</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">Контакты</a></li>
         </ul>
       </div>
     </nav>
@@ -95,7 +92,6 @@ export default {
       openNav: false,
     };
   },
-  // props: ['navState'],
   methods: {
     btnNav() {
       this.openNav !== false ? (this.openNav = false) : (this.openNav = true);
@@ -107,170 +103,167 @@ export default {
 
 <style lang="scss">
 .header {
-  &__info {
+  &__nav {
+    display: none;
+  }
+  .info {
     display: flex;
     justify-content: space-between;
-    padding-block: 12px;
-    &--mobile {
+    align-items: center;
+    &--desktop {
       display: none;
     }
+    &--mobile {
+      padding-top: 15px;
+      padding-bottom: 13px;
+    }
+    &__box {
+      display: flex;
+    }
   }
-  &__box {
-    display: flex;
-  }
-  &__logo {
+  .logo {
     display: flex;
     align-items: center;
     margin-right: 20px;
   }
-  &__address {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    padding-left: 23px;
-    & svg {
-      position: absolute;
-      left: 0;
+  .btn {
+    &__nav {
+      position: relative;
+      margin-right: 43px;
+      background: none;
+      height: 26px;
+      border: none;
+      width: 37px;
+      z-index: 2;
+      cursor: pointer;
+      & span {
+        position: absolute;
+        width: 37px;
+        height: 4px;
+        left: 0;
+        top: 10px;
+        background: #1fa181;
+        transition: transform 0.1s ease-in-out;
+      }
+      & span:first-child {
+        top: -1px;
+      }
+      & span:last-child {
+        top: 21px;
+      }
     }
-    &--title {
-      color: $color-base;
-      font-size: $fs-s;
-      font-weight: $fw-4;
-      line-height: 26px;
-    }
-    &--text {
-      color: $color-grey;
-      font-size: $fs-s;
-      font-weight: $fw-4;
-      line-height: 11px;
-    }
-  }
-  &__contacts {
-    display: flex;
-    align-items: center;
-    & svg {
-      margin-right: 10px;
-    }
-    &--tel {
-      margin-right: 35px;
-      color: $color-base;
-      font-size: $fs-base;
-      font-weight: $fw-4;
-      line-height: 24px;
-    }
-    &--btn {
-      font-size: $fs-s;
-      font-weight: $fw-4;
-      line-height: 21px;
-    }
-  }
-  &__nav {
-    padding-block: 10px;
-    background-color: $color-nav;
-    &--list {
-      display: flex;
-    }
-    &--item:not(:last-child) {
-      margin-right: 30px;
-    }
-
-    &--link {
-      color: $color-white;
-      font-size: $fs-base;
-      font-weight: $fw-4;
-      line-height: 24px;
-      transition: color 0.2s ease-in-out;
-      &:hover {
-        color: #fadede;
+    &-open {
+      & span {
+        position: absolute;
+        width: 37px;
+        height: 4px;
+        left: 0;
+        top: 10px;
+        background: #1fa181;
+      }
+      & span:nth-child(2) {
+        display: none;
+      }
+      & span:first-child {
+        left: -2px;
+        top: 11px;
+        transform: rotate(45deg);
+      }
+      & span:last-child {
+        left: -2.5px;
+        top: 11.9px;
+        transform: rotate(-45deg);
       }
     }
   }
-}
-@media (max-width: 992px) {
-  .header {
-    &__nav {
-      display: none;
+  .contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 2px;
+    &--tel {
+      line-height: 20px;
+      color: $color-base;
+      font-weight: $fw-7;
+      font-size: $fs-base;
     }
-    &__info {
-      display: none;
-      &--mobile {
+    &--address {
+      font-size: 13px;
+      font-weight: $fw-4;
+      line-height: 17px;
+    }
+  }
+}
+@media (min-width: 992px) {
+  .header {
+    .info {
+      padding-block: 12px;
+      &--desktop {
         display: flex;
-        justify-content: space-between;
-        padding-top: 15px;
-        padding-bottom: 13px;
-        .header {
-          &__box {
-            align-items: center;
-          }
-          &__nav {
-            &--closed {
-              position: relative;
-              border: none;
-              background: none;
-              width: 37px;
-              height: 26px;
-              margin-right: 43px;
-              z-index: 2;
-              cursor: pointer;
-              & span {
-                position: absolute;
-                width: 37px;
-                height: 4px;
-                left: 0;
-                top: 10px;
-                background: #1fa181;
-                transition: transform 0.1s ease-in-out;
-              }
-              & span:first-child {
-                top: -1px;
-              }
-              & span:last-child {
-                top: 21px;
-              }
-            }
-            &--open {
-              & span {
-                position: absolute;
-                width: 37px;
-                height: 4px;
-                left: 0;
-                top: 10px;
-                background: #1fa181;
-              }
-              & span:nth-child(2) {
-                display: none;
-              }
-              & span:first-child {
-                left: -2px;
-                top: 11px;
-                transform: rotate(45deg);
-              }
-              & span:last-child {
-                left: -2.5px;
-                top: 11.9px;
-                transform: rotate(-45deg);
-              }
-            }
-          }
-          &__contacts {
-            &--box {
-              display: flex;
-              flex-direction: column;
-              align-items: flex-end;
-              padding-right: 2px;
-            }
-            &--tel {
-              margin-right: 0;
-              font-weight: $fw-7;
-              line-height: 20px;
-              padding-bottom: 0px;
-            }
-            &--address {
-              font-size: 13px;
-              font-weight: $fw-4;
-              line-height: 17px;
-            }
-          }
+      }
+      &--mobile {
+        display: none;
+      }
+    }
+    .logo {
+      margin-left: 2px;
+    }
+    &__address {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding-left: 23px;
+      & svg {
+        position: absolute;
+        left: 0;
+      }
+      &--title {
+        color: $color-base;
+        font-size: $fs-s;
+        font-weight: $fw-4;
+        line-height: 22px;
+      }
+      &--text {
+        color: $color-grey;
+        font-size: $fs-s;
+        font-weight: $fw-4;
+        line-height: 11px;
+      }
+    }
+    .contacts {
+      flex-direction: row;
+      align-items: center;
+      & svg {
+        margin-right: 8px;
+      }
+      &--tel {
+        margin-right: 33px;
+        line-height: 24px;
+      }
+      &--btn {
+        font-size: $fs-s;
+        font-weight: $fw-4;
+        line-height: 21px;
+      }
+    }
+    .nav {
+      display: block;
+      padding-block: 10px;
+      background-color: $color-nav;
+      &__list {
+        display: flex;
+      }
+      &__item:not(:last-child) {
+        margin-right: 30px;
+      }
+      &__link {
+        color: $color-white;
+        font-size: $fs-base;
+        font-weight: $fw-4;
+        line-height: 24px;
+        transition: color 0.2s ease-in-out;
+        &:hover {
+          color: #fadede;
         }
       }
     }

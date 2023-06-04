@@ -10,7 +10,7 @@
 
 <script>
 import BaseHeader from './components/BaseHeader.vue';
-import SectionMain from './components/SectionHead.vue';
+import SectionMain from './components/SectionHero.vue';
 import SectionSlider from './components/SectionSlider.vue';
 import BaseFooter from './components/BaseFooter.vue';
 
