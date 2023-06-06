@@ -232,13 +232,11 @@ export default {
   }
 }
 .swiper-button-disabled {
+  pointer-events: none;
+  opacity: 0.5;
   cursor: default;
   & path {
     fill: #ececec;
-  }
-  &:disabled {
-    opacity: 0.5;
-    pointer-events: none;
   }
 }
 @media (max-width: 992px) {
