@@ -1,6 +1,18 @@
+<!-- eslint-disable vuejs-accessibility/click-events-have-key-events -->
+<!-- eslint-disable vuejs-accessibility/form-control-has-label -->
 <!-- eslint-disable max-len -->
 <template>
   <header class="header">
+    <div class="modal" :class="{ 'modal-open': openModal }">
+      <div class="modal__bac" @click="btnModal()"></div>
+      <div class="modal__box">
+        <h3 class="modal__title">Оставьте свои контакты</h3>
+        <input type="text" placeholder="ФИО" />
+        <input type="tel" placeholder="Телефон" />
+
+        <button class="btn-success btn" @click="btnModal()">Отправить</button>
+      </div>
+    </div>
     <div class="container">
       <div class="info info--mobile">
         <div class="info__box">
@@ -65,7 +77,9 @@
             </svg>
             <a class="contacts--tel" href="tel:+78630000000">+7(863) 000 00 00</a>
           </div>
-          <button class="contacts--btn btn btn-success">Записаться на прием</button>
+          <button class="contacts--btn btn btn-success" @click="btnModal()">
+            Записаться на прием
+          </button>
         </div>
       </div>
     </div>
@@ -90,6 +104,7 @@ export default {
   data() {
     return {
       openNav: false,
+      openModal: false,
     };
   },
   methods: {
@@ -97,11 +112,67 @@ export default {
       this.openNav !== false ? (this.openNav = false) : (this.openNav = true);
       this.$emit('navState', this.openNav);
     },
+    btnModal() {
+      this.openModal !== false ? (this.openModal = false) : (this.openModal = true);
+    },
   },
 };
 </script>
 
 <style lang="scss">
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.4s, visibility 0.4s;
+  &__bac {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+  }
+  &__title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 25px;
+  }
+  &__box {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    padding: 20px 40px;
+    z-index: 50;
+    margin: 30px 15px;
+    background-color: #fff;
+    box-shadow: 0 0 17px -7px rgba(34, 60, 80, 0.2);
+    transform: scale(0);
+    transition: transform 0.8s;
+    & input {
+      border: 1px solid #1fa181;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+  }
+  &-open {
+    visibility: visible;
+    opacity: 1;
+    .modal__box {
+      transform: scale(1);
+    }
+  }
+}
 .header {
   &__nav {
     display: none;
